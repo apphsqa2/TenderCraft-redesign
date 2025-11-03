@@ -138,8 +138,12 @@ code {
     
     /* Link Styles */
     .link-primary {
-        @apply text-primary hover:text-primary-hover underline-offset-4 hover:underline;
+        @apply text-primary underline-offset-4 hover:underline;
         transition: color var(--transition-base);
+    }
+    
+    .link-primary:hover {
+        color: hsl(var(--primary-hover));
     }
 }
 
