@@ -159,15 +159,18 @@ code {
     
     /* Badge Variants */
     .badge-urgent {
-        @apply bg-urgent text-urgent-foreground;
+        background-color: hsl(var(--urgent));
+        color: hsl(var(--urgent-foreground));
     }
     
     .badge-closing-soon {
-        @apply bg-closing-soon text-closing-soon-foreground;
+        background-color: hsl(var(--closing-soon));
+        color: hsl(var(--closing-soon-foreground));
     }
     
     .badge-new {
-        @apply bg-new text-new-foreground;
+        background-color: hsl(var(--new));
+        color: hsl(var(--new-foreground));
     }
     
     /* Animations */
