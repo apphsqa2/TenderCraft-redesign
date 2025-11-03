@@ -43,6 +43,30 @@ module.exports = {
   				DEFAULT: 'hsl(var(--destructive))',
   				foreground: 'hsl(var(--destructive-foreground))'
   			},
+  			success: {
+  				DEFAULT: 'hsl(var(--success))',
+  				foreground: 'hsl(var(--success-foreground))'
+  			},
+  			warning: {
+  				DEFAULT: 'hsl(var(--warning))',
+  				foreground: 'hsl(var(--warning-foreground))'
+  			},
+  			info: {
+  				DEFAULT: 'hsl(var(--info))',
+  				foreground: 'hsl(var(--info-foreground))'
+  			},
+  			urgent: {
+  				DEFAULT: 'hsl(var(--urgent))',
+  				foreground: 'hsl(var(--urgent-foreground))'
+  			},
+  			'closing-soon': {
+  				DEFAULT: 'hsl(var(--closing-soon))',
+  				foreground: 'hsl(var(--closing-soon-foreground))'
+  			},
+  			new: {
+  				DEFAULT: 'hsl(var(--new))',
+  				foreground: 'hsl(var(--new-foreground))'
+  			},
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
