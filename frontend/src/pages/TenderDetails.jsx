@@ -26,6 +26,7 @@ export const TenderDetails = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('overview');
   const [isBookmarked, setIsBookmarked] = useState(false);
+  const [isChatExpanded, setIsChatExpanded] = useState(false);
   
   // Mock tender data - in real app, fetch by ID
   const tender = tendersMockData[0];
