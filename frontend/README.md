@@ -131,8 +131,7 @@ yarn build          # Build for production
 yarn test           # Run tests
 
 # Code Quality
-yarn lint           # Run ESLint
-yarn format         # Format code with Prettier
+yarn lint           # Run ESLint (if configured)
 ```
 
 ## 🎯 Key Features Implementation
@@ -178,22 +177,8 @@ yarn build
 The optimized build will be in the `build/` folder, ready to deploy to:
 - **Vercel** - `vercel --prod`
 - **Netlify** - Drag & drop the `build/` folder
-- **GitHub Pages** - `yarn deploy`
+- **GitHub Pages** - Configure in repository settings
 - **AWS S3** - Upload `build/` folder
-
-## 📸 Screenshots
-
-### Discover Tenders Page
-![Discover Tenders](docs/screenshots/discover-tenders.png)
-
-### Filters Modal
-![Filters](docs/screenshots/filters-modal.png)
-
-### Tender Details
-![Tender Details](docs/screenshots/tender-details.png)
-
-### Mobile View
-![Mobile](docs/screenshots/mobile-view.png)
 
 ## 🤝 Contributing
 
@@ -219,10 +204,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Shadcn/UI](https://ui.shadcn.com/) for beautiful component library
 - [Tailwind CSS](https://tailwindcss.com/) for utility-first styling
 - Romanian procurement data structure
-
-## 📞 Support
-
-For support, email your-email@example.com or open an issue in the repository.
 
 ---
 
