@@ -1,70 +1,229 @@
-# Getting Started with Create React App
+# TenderCraft - Tender Management Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive web application for discovering and managing public procurement tenders. Built with React, Tailwind CSS, and Shadcn/UI components.
 
-## Available Scripts
+![TenderCraft](https://img.shields.io/badge/React-19.2.0-blue)
+![Tailwind](https://img.shields.io/badge/TailwindCSS-3.4.18-38B2AC)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-In the project directory, you can run:
+## ✨ Features
 
-### `npm start`
+### 🔍 Tender Discovery
+- **Advanced Search** - Search tenders by keywords, location, and budget
+- **Smart Filters** - Filter by CPV codes, buyer, announcement type, dates, and more
+- **Dual View Modes** - Switch between grid and list views
+- **Real-time Results** - Instant feedback with 9 sample tenders
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 📋 Tender Details
+- **Complete Information** - View all tender details including deadlines, budgets, and locations
+- **AI Insights** - Get instant AI-powered analysis of tender requirements
+- **Document Access** - Access tender documents and buyer information
+- **Award Criteria** - Expandable sections showing evaluation criteria
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🤖 AI Assistant
+- **Tender Expert** - Ask questions about tender requirements
+- **Deadline Tracking** - Get reminders and submission tips
+- **Smart Recommendations** - AI-powered tender matching
 
-### `npm test`
+### 📱 Responsive Design
+- **Mobile-First** - Fully responsive on all devices
+- **Professional UI** - Clean, modern design following procurement industry standards
+- **Accessible** - WCAG compliant with proper contrast and keyboard navigation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Quick Start
 
-### `npm run build`
+### Prerequisites
+- **Node.js** 16.x or higher ([Download](https://nodejs.org/))
+- **Yarn** (recommended) or npm
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+# Clone the repository
+git clone https://github.com/apphsqa2/TenderCraft-redesign.git
+cd TenderCraft-redesign
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Install dependencies
+yarn install
+# or
+npm install
 
-### `npm run eject`
+# Start development server
+yarn start
+# or
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The application will open at **http://localhost:3000**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🏗️ Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+frontend/
+├── public/
+│   └── index.html              # HTML template
+├── src/
+│   ├── components/
+│   │   ├── layout/
+│   │   │   └── Sidebar.jsx     # Navigation sidebar
+│   │   ├── tenders/
+│   │   │   ├── TenderCard.jsx  # Individual tender card
+│   │   │   ├── TenderGrid.jsx  # Tender grid/list view
+│   │   │   ├── TenderFilters.jsx # Advanced filter modal
+│   │   │   ├── SearchBar.jsx   # Search component
+│   │   │   └── AIAssistantWidget.jsx # AI assistant
+│   │   └── ui/                 # Shadcn UI components
+│   │       ├── button.jsx
+│   │       ├── card.jsx
+│   │       ├── badge.jsx
+│   │       └── ... (30+ components)
+│   ├── pages/
+│   │   ├── DiscoverTenders.jsx # Main tender listing page
+│   │   └── TenderDetails.jsx   # Tender detail page
+│   ├── data/
+│   │   └── mockTenders.js      # Sample tender data
+│   ├── lib/
+│   │   └── utils.js            # Utility functions
+│   ├── App.js                  # Main app component
+│   ├── index.css               # Global styles & design tokens
+│   └── index.js                # Entry point
+├── package.json
+├── tailwind.config.js          # Tailwind configuration
+└── .env                        # Environment variables
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🎨 Design System
 
-## Learn More
+### Color Palette
+```css
+/* Primary Colors */
+--primary: 217 91% 60%;      /* Professional Blue */
+--accent: 245 58% 65%;       /* Purple (AI Features) */
+--secondary: 214 32% 91%;    /* Light Blue-Gray */
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+/* Status Colors */
+--success: 142 71% 45%;      /* Green */
+--warning: 38 92% 50%;       /* Orange */
+--destructive: 0 84% 60%;    /* Red */
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Typography
+- **Font Family**: Inter (Google Fonts)
+- **Headings**: Semibold (600)
+- **Body**: Regular (400)
+- **Scale**: 12px to 36px
 
-### Code Splitting
+## 🛠️ Built With
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **[React 19.2.0](https://react.dev/)** - UI Framework
+- **[React Router 7.9.5](https://reactrouter.com/)** - Routing
+- **[Tailwind CSS 3.4.18](https://tailwindcss.com/)** - Styling
+- **[Shadcn/UI](https://ui.shadcn.com/)** - Component Library
+- **[Lucide React](https://lucide.dev/)** - Icons
+- **[date-fns](https://date-fns.org/)** - Date formatting
 
-### Analyzing the Bundle Size
+## 📝 Available Scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+# Development
+yarn start          # Start dev server at http://localhost:3000
+yarn build          # Build for production
+yarn test           # Run tests
 
-### Making a Progressive Web App
+# Code Quality
+yarn lint           # Run ESLint
+yarn format         # Format code with Prettier
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🎯 Key Features Implementation
 
-### Advanced Configuration
+### Routing
+```javascript
+/ - Discover Tenders (Main page with grid/list view)
+/tender/:id - Tender Details (Full tender information)
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### State Management
+- **Local State**: Using React Hooks (useState, useEffect)
+- **Mock Data**: 9 sample tenders in `/src/data/mockTenders.js`
+- **No Backend**: Frontend-only prototype with client-side filtering
 
-### Deployment
+### Responsive Breakpoints
+```css
+sm: 640px   /* Small devices */
+md: 768px   /* Tablets */
+lg: 1024px  /* Laptops */
+xl: 1280px  /* Desktops */
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🔧 Configuration
 
-### `npm run build` fails to minify
+### Environment Variables
+Create a `.env` file in the root directory:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```env
+REACT_APP_BACKEND_URL=http://localhost:8001
+```
+
+### Tailwind Configuration
+Customize colors, fonts, and breakpoints in `tailwind.config.js`
+
+## 🚀 Deployment
+
+### Build for Production
+```bash
+yarn build
+```
+
+The optimized build will be in the `build/` folder, ready to deploy to:
+- **Vercel** - `vercel --prod`
+- **Netlify** - Drag & drop the `build/` folder
+- **GitHub Pages** - `yarn deploy`
+- **AWS S3** - Upload `build/` folder
+
+## 📸 Screenshots
+
+### Discover Tenders Page
+![Discover Tenders](docs/screenshots/discover-tenders.png)
+
+### Filters Modal
+![Filters](docs/screenshots/filters-modal.png)
+
+### Tender Details
+![Tender Details](docs/screenshots/tender-details.png)
+
+### Mobile View
+![Mobile](docs/screenshots/mobile-view.png)
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Authors
+
+- **Your Name** - *Initial work* - [apphsqa2](https://github.com/apphsqa2)
+
+## 🙏 Acknowledgments
+
+- Design inspiration from modern procurement platforms
+- [Shadcn/UI](https://ui.shadcn.com/) for beautiful component library
+- [Tailwind CSS](https://tailwindcss.com/) for utility-first styling
+- Romanian procurement data structure
+
+## 📞 Support
+
+For support, email your-email@example.com or open an issue in the repository.
+
+---
+
+**Made with ❤️ using React and Tailwind CSS**
