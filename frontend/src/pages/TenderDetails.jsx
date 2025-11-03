@@ -325,77 +325,204 @@ export const TenderDetails = () => {
               </div>
             </div>
 
-            {/* Right Sidebar - Quick Actions & Summary */}
+            {/* Right Sidebar - AI Chat Assistant */}
             <div className="lg:col-span-1">
-              <div className="sticky top-6 space-y-4">
-                {/* Quick Actions Card */}
-                <div className="bg-card rounded-lg p-5 card-shadow">
-                  <h3 className="font-bold text-foreground mb-4">Quick Actions</h3>
-                  <div className="space-y-3">
-                    <Button className="w-full bg-primary hover:bg-primary/90">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Apply Now
-                    </Button>
-                    <Button variant="outline" className="w-full">
-                      <Download className="h-4 w-4 mr-2" />
-                      Download All Docs
-                    </Button>
-                    <Button variant="outline" className="w-full">
-                      <Calendar className="h-4 w-4 mr-2" />
-                      Add to Calendar
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Timeline Card */}
-                <div className="bg-card rounded-lg p-5 card-shadow">
-                  <h3 className="font-bold text-foreground mb-4">Timeline</h3>
-                  <div className="space-y-4">
-                    <div className="flex gap-3">
-                      <div className="flex flex-col items-center">
-                        <div className="w-8 h-8 bg-success rounded-full flex items-center justify-center">
-                          <CheckCircle2 className="h-4 w-4 text-white" />
-                        </div>
-                        <div className="w-0.5 h-full bg-border my-1" />
-                      </div>
-                      <div className="pb-4">
-                        <p className="text-sm font-semibold text-foreground">Published</p>
-                        <p className="text-xs text-muted-foreground">{tender.publishedDate}</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-3">
-                      <div className="flex flex-col items-center">
-                        <div className="w-8 h-8 bg-warning rounded-full flex items-center justify-center">
-                          <Clock className="h-4 w-4 text-white" />
-                        </div>
+              <div className={cn(
+                "sticky top-6 transition-all duration-300",
+                isChatExpanded ? "z-50" : "z-10"
+              )}>
+                {/* AI Chat Card */}
+                <div className={cn(
+                  "bg-card rounded-lg card-shadow overflow-hidden transition-all duration-300",
+                  isChatExpanded ? "fixed inset-y-6 right-6 w-[500px] max-w-[calc(100vw-3rem)]" : ""
+                )}>
+                  {/* Chat Header */}
+                  <div className="bg-accent text-accent-foreground p-4 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                        <Sparkles className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="text-sm font-semibold text-foreground">Deadline</p>
-                        <p className="text-xs text-muted-foreground">{tender.deadline}</p>
-                        <p className="text-xs text-warning font-medium mt-1">{countdown.text}</p>
+                        <h3 className="font-bold text-sm">AI Tender Assistant</h3>
+                        <p className="text-xs opacity-90">Ask about this tender</p>
+                      </div>
+                    </div>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setIsChatExpanded(!isChatExpanded)}
+                      className="text-accent-foreground hover:bg-white/20 h-8 w-8 p-0"
+                      title={isChatExpanded ? "Minimize" : "Expand"}
+                    >
+                      {isChatExpanded ? (
+                        <Minimize2 className="h-4 w-4" />
+                      ) : (
+                        <Maximize2 className="h-4 w-4" />
+                      )}
+                    </Button>
+                  </div>
+
+                  {/* Chat Messages */}
+                  <div className={cn(
+                    "overflow-y-auto bg-muted/30",
+                    isChatExpanded ? "h-[calc(100vh-220px)]" : "h-[400px]"
+                  )}>
+                    <div className="p-4 space-y-4">
+                      {/* Welcome Message */}
+                      <div className="flex gap-3">
+                        <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                          <Sparkles className="h-4 w-4 text-accent-foreground" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="bg-card p-3 rounded-lg shadow-sm">
+                            <p className="text-sm text-foreground mb-2">
+                              Hi! I'm your AI assistant. I can help you understand this tender better.
+                            </p>
+                            <div className="space-y-1.5 mt-3">
+                              <button className="w-full text-left text-xs text-primary hover:bg-primary/5 p-2 rounded border border-border transition-colors">
+                                📋 What are the key requirements?
+                              </button>
+                              <button className="w-full text-left text-xs text-primary hover:bg-primary/5 p-2 rounded border border-border transition-colors">
+                                ⚠️ What are the risks and challenges?
+                              </button>
+                              <button className="w-full text-left text-xs text-primary hover:bg-primary/5 p-2 rounded border border-border transition-colors">
+                                💰 How is the budget structured?
+                              </button>
+                              <button className="w-full text-left text-xs text-primary hover:bg-primary/5 p-2 rounded border border-border transition-colors">
+                                📅 What's the submission timeline?
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Example User Message */}
+                      <div className="flex gap-3 justify-end">
+                        <div className="flex-1 max-w-[80%]">
+                          <div className="bg-primary text-primary-foreground p-3 rounded-lg shadow-sm ml-auto">
+                            <p className="text-sm">
+                              What are the main deliverables for this project?
+                            </p>
+                          </div>
+                        </div>
+                        <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-xs font-semibold text-primary">AP</span>
+                        </div>
+                      </div>
+
+                      {/* Example AI Response */}
+                      <div className="flex gap-3">
+                        <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center flex-shrink-0">
+                          <Sparkles className="h-4 w-4 text-accent-foreground" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="bg-card p-3 rounded-lg shadow-sm">
+                            <p className="text-sm text-foreground">
+                              Based on the tender documentation, the main deliverables include:
+                            </p>
+                            <ul className="text-sm text-muted-foreground mt-2 space-y-1 list-disc list-inside">
+                              <li>100 LED luminaire units</li>
+                              <li>Installation of telemanagement system</li>
+                              <li>Electrical and mechanical verification</li>
+                              <li>Complete commissioning of equipment</li>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Related Tenders */}
-                <div className="bg-card rounded-lg p-5 card-shadow">
-                  <h3 className="font-bold text-foreground mb-4">Related Tenders</h3>
-                  <div className="space-y-3">
-                    {tendersMockData.slice(1, 4).map((relatedTender) => (
-                      <button
-                        key={relatedTender.id}
-                        onClick={() => navigate(`/tender/${relatedTender.id}`)}
-                        className="w-full text-left p-3 border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-colors"
-                      >
-                        <p className="text-sm font-semibold text-foreground line-clamp-2 mb-1">
-                          {relatedTender.title}
-                        </p>
-                        <p className="text-xs text-muted-foreground">{relatedTender.location}</p>
-                      </button>
-                    ))}
+                  {/* Chat Input */}
+                  <div className="p-4 bg-card border-t border-border">
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        placeholder="Ask a question about this tender..."
+                        className="flex-1 px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary bg-background"
+                      />
+                      <Button size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                        <Send className="h-4 w-4" />
+                      </Button>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-2">
+                      AI responses are generated and may contain errors. Always verify critical information.
+                    </p>
                   </div>
                 </div>
+
+                {/* Quick Actions - Hidden when chat is expanded */}
+                {!isChatExpanded && (
+                  <div className="mt-4 space-y-4">
+                    {/* Quick Actions Card */}
+                    <div className="bg-card rounded-lg p-5 card-shadow">
+                      <h3 className="font-bold text-foreground mb-4">Quick Actions</h3>
+                      <div className="space-y-3">
+                        <Button className="w-full bg-primary hover:bg-primary/90">
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          Apply Now
+                        </Button>
+                        <Button variant="outline" className="w-full">
+                          <Download className="h-4 w-4 mr-2" />
+                          Download All Docs
+                        </Button>
+                        <Button variant="outline" className="w-full">
+                          <Calendar className="h-4 w-4 mr-2" />
+                          Add to Calendar
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* Timeline Card */}
+                    <div className="bg-card rounded-lg p-5 card-shadow">
+                      <h3 className="font-bold text-foreground mb-4">Timeline</h3>
+                      <div className="space-y-4">
+                        <div className="flex gap-3">
+                          <div className="flex flex-col items-center">
+                            <div className="w-8 h-8 bg-success rounded-full flex items-center justify-center">
+                              <CheckCircle2 className="h-4 w-4 text-white" />
+                            </div>
+                            <div className="w-0.5 h-full bg-border my-1" />
+                          </div>
+                          <div className="pb-4">
+                            <p className="text-sm font-semibold text-foreground">Published</p>
+                            <p className="text-xs text-muted-foreground">{tender.publishedDate}</p>
+                          </div>
+                        </div>
+                        <div className="flex gap-3">
+                          <div className="flex flex-col items-center">
+                            <div className="w-8 h-8 bg-warning rounded-full flex items-center justify-center">
+                              <Clock className="h-4 w-4 text-white" />
+                            </div>
+                          </div>
+                          <div>
+                            <p className="text-sm font-semibold text-foreground">Deadline</p>
+                            <p className="text-xs text-muted-foreground">{tender.deadline}</p>
+                            <p className="text-xs text-warning font-medium mt-1">{countdown.text}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Related Tenders */}
+                    <div className="bg-card rounded-lg p-5 card-shadow">
+                      <h3 className="font-bold text-foreground mb-4">Related Tenders</h3>
+                      <div className="space-y-3">
+                        {tendersMockData.slice(1, 4).map((relatedTender) => (
+                          <button
+                            key={relatedTender.id}
+                            onClick={() => navigate(`/tender/${relatedTender.id}`)}
+                            className="w-full text-left p-3 border border-border rounded-lg hover:border-primary hover:bg-primary/5 transition-colors"
+                          >
+                            <p className="text-sm font-semibold text-foreground line-clamp-2 mb-1">
+                              {relatedTender.title}
+                            </p>
+                            <p className="text-xs text-muted-foreground">{relatedTender.location}</p>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
