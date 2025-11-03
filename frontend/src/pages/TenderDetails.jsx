@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Share2, Bookmark, Calendar, MapPin, DollarSign, FileText, Sparkles, Clock, Building, ArrowLeft, Download, ExternalLink, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Share2, Bookmark, Calendar, MapPin, DollarSign, FileText, Sparkles, Clock, Building, ArrowLeft, Download, ExternalLink, CheckCircle2, AlertCircle, Maximize2, Minimize2, Send } from 'lucide-react';
 import { tendersMockData } from '@/data/mockTenders';
 import { cn } from '@/lib/utils';
 
